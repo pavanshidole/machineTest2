@@ -1,0 +1,33 @@
+
+
+<div class="row">
+    <div class="col-md-6 mb-md-0">
+        <div class="card bg-dark text-white">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="todoitem">todoitem</label>
+                    <input 
+                    #todoitem
+                    type="text" id="todoitem" class="form-control">
+                </div>
+                <button 
+                (click)="onTodoAdd()"
+                class="btn btn-sm btn-block btn-outline-success">Add Todo</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <ul 
+        *ngIf="todoArray.length > 0; else noTodo"
+        class="list-group bg-dark">
+            <li
+            *ngFor="let todo of todoArray"
+            class="list-group-item"> {{todo.todoItem}}</li>
+        </ul>
+        
+        <ng-template #noTodo>
+            <p class="alert alert-primary">no todo list is available in todoList !!!</p>
+        </ng-template>
+
+    </div>
+</div>
